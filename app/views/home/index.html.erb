@@ -1,2 +1,56 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div id="contents">
+    <main>
+
+        <!-- 検索フォーム・ここから -->
+        <div class="background1-parts">
+            <section>
+                <form action="#">
+
+                    <!-- エリア -->
+                    <label class="selectbox-3">
+                        <select class="select-area">
+                            <option>北海道</option>
+                            <option>東京</option>
+                            <option>大阪</option>
+                        </select>
+                    </label>
+
+                    <!-- ジャンル -->
+                    <label class="selectbox-3">
+                        <select class="select-genre">
+                            <option>すべて</option>
+                            <option>ドキュメンタリー</option>
+                            <option>バラエティ</option>
+                        </select>
+                    </label>
+
+                    <!-- 放送日 -->
+                    <label class="selectbox-3">
+                        <select class="select-date">
+                            <option>12月23日(日)</option>
+                            <option>12月24日(月)</option>
+                            <option>一週間</option>
+                        </select>
+                    </label>
+
+                    <!-- フリーワード＆検索ボタン -->
+                    <div class="search-form-1">
+                        <label>
+                            <input type="text" placeholder="キーワードを入力">
+                        </label>
+                        <button type="submit" aria-label="検索"></button>
+                    </div>
+                </form>
+            </section>
+        </div>
+        <!-- 検索フォーム・ここまで -->
+
+        <!-- テーブル・ここから -->
+        <section>
+            <p class="announce">放送エリア、ジャンル、放送日、キーワードを入力して検索してください</p>
+        </section>
+        <!-- テーブル・ここまで -->
+
+    </main>
+</div>
+<!--/#contents-->
