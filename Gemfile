@@ -64,4 +64,11 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+
+  # minitest関連のgemを追加
+  gem 'rails-controller-testing'
+  gem 'minitest'
+  gem 'minitest-rails'      # Rails統合 (model/controller/test helperなど)
+  gem 'minitest-reporters'  # 出力をカラフルにする（任意）
+
 end
