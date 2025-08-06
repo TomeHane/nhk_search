@@ -26,7 +26,7 @@
                         <label>
                             <%= form.text_field :keyword, value: session[:keyword], placeholder: "キーワードを入力" %>
                         </label>
-                        <%= form.button "", aria: { label: "検索" } %>
+                        <button type="submit" aria-label="検索"></button>
                     </div>
                 <% end %>
             </section>
