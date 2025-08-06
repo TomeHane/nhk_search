@@ -28,7 +28,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
       # name="keyword"のテキストフィールドがあるか
       assert_select "input[type=text][name=?]", "keyword"
       # 送信ボタンがあるか
-      assert_select "input[type=submit]"
+      assert_select "button[type=submit]"
     end
 
   end

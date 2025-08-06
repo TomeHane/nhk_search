@@ -1,47 +1,34 @@
-<!-- このファイルの修正から着手する -->
 <div id="contents">
     <main>
 
         <!-- 検索フォーム・ここから -->
         <div class="background1-parts">
             <section>
-                <form action="#">
+                <%= form_with url: programs_path, method: :get do |form| %>
 
                     <!-- エリア -->
                     <label class="selectbox-3">
-                        <select class="select-area">
-                            <option>北海道</option>
-                            <option>東京</option>
-                            <option>大阪</option>
-                        </select>
+                        <%= form.select :area, @areas, { selected: session[:area] }, { class: "select-area" } %>
                     </label>
 
                     <!-- ジャンル -->
                     <label class="selectbox-3">
-                        <select class="select-genre">
-                            <option>すべて</option>
-                            <option>ドキュメンタリー</option>
-                            <option>バラエティ</option>
-                        </select>
+                        <%= form.select :genre, @genres, { selected: session[:genre] }, { class: "select-genre" } %>
                     </label>
 
                     <!-- 放送日 -->
                     <label class="selectbox-3">
-                        <select class="select-date">
-                            <option>12月23日(日)</option>
-                            <option>12月24日(月)</option>
-                            <option>一週間</option>
-                        </select>
+                        <%= form.select :date, @dates, { selected: session[:date] }, { class: "select-date" } %>
                     </label>
 
                     <!-- フリーワード＆検索ボタン -->
                     <div class="search-form-1">
                         <label>
-                            <input type="text" placeholder="キーワードを入力">
+                            <%= form.text_field :keyword, value: session[:keyword], placeholder: "キーワードを入力" %>
                         </label>
-                        <button type="submit" aria-label="検索"></button>
+                        <%= form.button "", aria: { label: "検索" } %>
                     </div>
-                </form>
+                <% end %>
             </section>
         </div>
         <!-- 検索フォーム・ここまで -->
