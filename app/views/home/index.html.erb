@@ -1,41 +1,15 @@
 <div id="contents">
     <main>
 
-        <!-- 検索フォーム・ここから -->
-        <div class="background1-parts">
-            <section>
-                <%= form_with url: programs_path, method: :get do |form| %>
-
-                    <!-- エリア -->
-                    <label class="selectbox-3">
-                        <%= form.select :area, @areas, { selected: session[:area] }, { class: "select-area" } %>
-                    </label>
-
-                    <!-- ジャンル -->
-                    <label class="selectbox-3">
-                        <%= form.select :genre, @genres, { selected: session[:genre] }, { class: "select-genre" } %>
-                    </label>
-
-                    <!-- 放送日 -->
-                    <label class="selectbox-3">
-                        <%= form.select :date, @dates, { selected: session[:date] }, { class: "select-date" } %>
-                    </label>
-
-                    <!-- フリーワード＆検索ボタン -->
-                    <div class="search-form-1">
-                        <label>
-                            <%= form.text_field :keyword, value: session[:keyword], placeholder: "キーワードを入力" %>
-                        </label>
-                        <button type="submit" aria-label="検索"></button>
-                    </div>
-                <% end %>
-            </section>
-        </div>
-        <!-- 検索フォーム・ここまで -->
+        <%= render 'shared/search_form' %>
 
         <!-- テーブル・ここから -->
         <section>
-            <p class="announce">放送エリア、ジャンル、放送日、キーワードを入力して検索してください</p>
+            <% if flash[:warning] %>
+                <p class="warning"><%= flash[:warning] %></p>
+            <% else %>
+                <p class="announce">放送エリア、ジャンル、放送日、キーワードを入力して検索してください</p>
+            <% end %>
         </section>
         <!-- テーブル・ここまで -->
 

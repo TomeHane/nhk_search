@@ -558,10 +558,14 @@ div.padding0 {
 	color: #323131;
 }
 
-.not_found, .announce{
+.not_found, .announce, .warning{
 	text-align: center;
 	font-size: 16px;
 	margin-bottom: 4rem;
+}
+
+.warning{
+	color: red;
 }
 
 /*画面幅600px以下の追加指定*/
@@ -579,6 +583,6 @@ div.padding0 {
 		line-clamp: 2;                    /* 標準プロパティも追加 */
 		overflow: hidden;                 /* 超過部分を隠す */
 	 }
-	 .not_found, .announce{font-size: 14px;}
+	 .not_found, .announce, .warning{font-size: 14px;}
 	}
 /*追加指定ここまで*/
