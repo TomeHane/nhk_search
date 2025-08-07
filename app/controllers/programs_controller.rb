@@ -5,6 +5,8 @@ class ProgramsController < ApplicationController
   API_KEY = Rails.application.credentials.dig(:nhk_api_key) # シークレットからAPIキーを取得
 
   def index
+    set_search_form
+
     sc = SearchCondition.new #検索条件
 
     if params[:date] == "week"
