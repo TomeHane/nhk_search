@@ -1,2 +1,38 @@
-<h1>Programs#index</h1>
-<p>Find me in app/views/programs/index.html.erb</p>
+<div id="contents">
+    <main>
+
+        <%= render 'shared/search_form' %>
+
+        <!-- テーブル・ここから -->
+        <section>
+            <% @programs_by_day.each do |date, programs_by_channel| %>
+                <h2 class="date"><%= date %></h2>
+
+                <% if programs_by_channel.empty? %>
+                    <p class="not_found">条件に一致する番組は見つかりませんでした</p>
+                <% else %>
+                    <% programs_by_channel.each do |ch_name, programs| %>
+                        <table class="ta1-parts">
+                            <caption class="channel"><%= ch_name %></caption>
+
+                            <% programs.each do |p| %>
+                                <tr>
+                                    <td class="program_text">
+                                        <div class="program_time"><%= p['start_time'] %> ～ <%= p['end_time'] %></div>
+                                        <h3 class="program_title"><%= p['title'] %></h3>
+                                        <div class="program_content"><%= p['content'] %></div>
+                                    </td>
+                                </tr>
+                            <% end %>
+
+                        </table>
+                    <% end %>
+                <% end %>
+
+            <% end %>
+        </section>
+        <!-- テーブル・ここまで -->
+
+    </main>
+</div>
+<!--/#contents-->
