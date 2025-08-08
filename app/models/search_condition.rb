@@ -13,7 +13,7 @@ class SearchCondition
 
   # 放送日のハッシュを作る
   def self.broadcast_dates
-    d = Date.today
+    d = Time.zone.today
     japanese_weekdays = %w[日 月 火 水 木 金 土]
     dates = {'一週間' => 'week'}
     8.times do |i|

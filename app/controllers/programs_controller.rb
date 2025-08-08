@@ -64,7 +64,7 @@ class ProgramsController < ApplicationController
           programs_by_channel[ch_name] = programs if programs != []
         end
 
-        d = Date.today + sc.days_from_today
+        d = Time.zone.today + sc.days_from_today
         japanese_weekdays = %w[日 月 火 水 木 金 土]
         # 日毎の番組リストに、チャンネル毎の番組リストを追加する
         @programs_by_day[d.strftime("%Y年%m月%d日（#{japanese_weekdays[d.wday]}）")] = programs_by_channel
@@ -90,7 +90,7 @@ class ProgramsController < ApplicationController
   # NHK番組表API用のURIを生成するメソッド
   def create_uri(sc)
     # 検索対象日を設定
-    target_date = (Date.today + sc.days_from_today).strftime('%Y-%m-%d')
+    target_date = (Time.zone.today + sc.days_from_today).strftime('%Y-%m-%d')
     if sc.genre_code == "all"
       # ProgramListAPI用（ジャンル指定なし）のURIを生成
       URI("https://api.nhk.or.jp/v2/pg/list/#{sc.area_code}/tv/#{target_date}.json")
