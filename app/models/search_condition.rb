@@ -16,7 +16,15 @@ class SearchCondition
     d = Time.zone.today
     japanese_weekdays = %w[日 月 火 水 木 金 土]
     dates = {'一週間' => 'week'}
-    8.times do |i|
+
+    # 現在の時刻が6時以降か（番組表データは5時頃更新される）
+    if Time.zone.now.hour >= 6
+      count = 8      # 検索日数
+    else
+      count = 7
+    end
+
+    count.times do |i|
       dates[d.strftime("%m月%d日(#{japanese_weekdays[d.wday]})")] = i
       d += 1
     end

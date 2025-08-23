@@ -11,7 +11,12 @@ class ProgramsController < ApplicationController
 
     if params[:date] == "week"
       sc.days_from_today = 0 # 検索開始日（今日から0日後）
-      sc.days_count = 8      # 検索日数
+      # 現在の時刻が6時以降か（番組表データは5時頃更新される）
+      if Time.zone.now.hour >= 6
+        sc.days_count = 8      # 検索日数
+      else
+        sc.days_count = 7
+      end
     else
       sc.days_from_today = params[:date].to_i
       sc.days_count = 1
